@@ -1,5 +1,5 @@
-# gpu-kmer-counter
-Speeding up the algorithm to count K-mers in a genetic sequence using GPUs.
+#### im-mou/gpu-kmer-counter
+# Speeding up the algorithm to count K-mers in a genetic sequence using GPUs.
 
 ## Abstract
 K-mer counting is a process with the goal of creating a histogram of all possible combinations of length k for an input string S. From an algorithmic point of view, counting k-mers in a string seems like a very simple task but with recent advances in sequencing technology, more and more sequencing machines are generating a large amount of data in a very short time and makes the simple task of generating a histogram a challenge. In recent years, the performance of k-mer counting algorithms has improved significantly, and there has been much interest in using graphics processing units (GPUs) to accomplish the task of counting k-mers. The fundamental purpose of this research is to analyze different algorithms to count the number of occurrences in a sequence with different k-mer settings and subsequently to optimize and speed up one of the algorithms by using GPUs.
