@@ -26,6 +26,8 @@ wget https://github.com/lh3/kmer-cnt/releases/download/v0.1/M_abscessus_HiSeq_10
 
 ## Excute implementations
 
+By default all these script execute the code with k-mer length of 32. If you choose to experiment with a diferent k size, you can edit the corresponding slurm file and uncomment the line with the desired k-length.
+
 ### Secuential: kc-c1-fast.c
 ```sh
 sbatch ./slurm_scripts/slurm-kc-c1-fast.sub
