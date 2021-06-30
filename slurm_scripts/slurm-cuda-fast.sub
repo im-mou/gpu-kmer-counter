@@ -1,0 +1,27 @@
+#!/bin/bash -l
+
+#SBATCH --job-name=FGPU
+#SBATCH -N 1
+#SBATCH --partition=cuda.q
+#SBATCH -w aolin23
+#SBATCH --exclusive
+#SBATCH --output=cuda-fast.txt
+
+rm ./cuda-fast
+
+# next variable indicates GPU device number 
+export CUDA_VISIBLE_DEVICES=0
+
+# install CUDA profiling utilities
+module add cuda/11.2
+module add nvidia-hpc-sdk/21.2
+
+echo -e "\nCompilant\n"
+nvcc -O3 --ptxas-options=-O3 -o cuda-fast ../cuda-fast.cu
+
+echo -e "\nExecutant\n"
+#nsys nvprof ./cuda-fast 3 6 ../M_abscessus_HiSeq_10M.txt
+#nsys nvprof ./cuda-fast 7 14 ../M_abscessus_HiSeq_10M.txt
+#nsys nvprof ./cuda-fast 11 22 ../M_abscessus_HiSeq_10M.txt
+#nsys nvprof ./cuda-fast 15 26 ../M_abscessus_HiSeq_10M.txt
+nsys nvprof ./cuda-fast 31 27 ../M_abscessus_HiSeq_10M.txt

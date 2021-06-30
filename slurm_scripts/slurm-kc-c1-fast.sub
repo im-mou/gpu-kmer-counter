@@ -1,0 +1,17 @@
+#!/bin/bash -l
+#SBATCH -p cuda.q # submit to cuda.q partition
+#SBATCH -w aolin23 # specify the required executing node i
+#SBATCH --exclusive # claim node in exclusive mode
+#SBATCH --output=kc-c1-fast.txt
+
+echo "Running on: `/bin/hostname`" 
+module add gcc/10.2.0
+
+rm ./kc-c1-fast
+gcc -g -Wall -Ofast -o kc-c1-fast ../kc-c1-fast.c -lz
+
+#perf stat ./kc-c1-fast 3 6 ../M_abscessus_HiSeq_10M.txt
+#perf stat ./kc-c1-fast 7 14 ../M_abscessus_HiSeq_10M.txt
+#perf stat ./kc-c1-fast 11 22 ../M_abscessus_HiSeq_10M.txt
+#perf stat ./kc-c1-fast 15 26 ../M_abscessus_HiSeq_10M.txt
+perf stat ./kc-c1-fast 31 27 ../M_abscessus_HiSeq_10M.txt
