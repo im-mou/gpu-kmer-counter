@@ -7,7 +7,7 @@ K-mer counting is a process with the goal of creating a histogram of all possibl
 ## Source repository
 [Source code repository: lh3/kmer-cnt](https://github.com/lh3/kmer-cnt)
 <br/>
-This repository contains all the the source code of the diferent implementations that has be used and experimented with for this research.
+This repository contains all the the source code of the diferent implementations that has been used and experimented with for this research.
 
 ## Instructions to use and test the implementations
 
@@ -17,14 +17,14 @@ cd gpu-kmer-counter
 make
 ```
 
-### Download and parse the dataset for different scripts
+### Download and parse the dataset for different implementations
 
 ```sh
 wget https://github.com/lh3/kmer-cnt/releases/download/v0.1/M_abscessus_HiSeq_10M.fa.gz
 ./parse-data ./M_abscessus_HiSeq_10M.fa.gz
 ```
 
-## Excute implementations
+## Execute implementations
 
 By default all these script execute the code with k-mer length of 32. If you choose to experiment with a diferent k size, you can edit the corresponding slurm file and uncomment the line with the desired k-length.
 
@@ -33,7 +33,7 @@ By default all these script execute the code with k-mer length of 32. If you cho
 sbatch ./slurm_scripts/slurm-kc-c1-fast.sub
 ```
 
-### Parallel: cuda-fast.c - Best Implementation
+### Parallel: cuda-fast.c - Best implementation
 ```sh
 sbatch ./slurm_scripts/slurm-cuda-fast.sub
 ```
@@ -44,6 +44,6 @@ sbatch ./slurm_scripts/slurm-cuda-dumb.sub
 ```
 
 ## Scripts
-The two properly working final scripts with the correct outputs are the following:
+The two properly working final sequential and parallel implementation with the correct outputs are the following:
 - kc-c1-fast.c
 - cuda-fast.cu
